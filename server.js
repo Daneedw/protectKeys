@@ -9,9 +9,6 @@ app.use(express.static('public'))
 
 app.get("/omdb/:title", async (req, res)=>{
 
-
-
-
     const response = await fetch("https://www.omdbapi.com/?t="+req.params.title+"&apikey=" +process.env.API_KEY)
 
     const movie  =await response.json();
