@@ -11,7 +11,7 @@ const hbs = exphbs.create({ });
 app.use(express.static('public'))
 app.engine('handlebars', hbs.engine);
 
-app.get("/omdb/rendered/:title", async (req, res)=>{
+app.get("/rendered/:title", async (req, res)=>{
 
     const response = await fetch("https://www.omdbapi.com/?t="+req.params.title+"&apikey=" +process.env.API_KEY)
 
@@ -22,7 +22,7 @@ app.get("/omdb/rendered/:title", async (req, res)=>{
 
 })
 
-app.get("/omdb/api/:title", async (req, res)=>{
+app.get("/api/omdb/:title", async (req, res)=>{
 
     const response = await fetch("https://www.omdbapi.com/?t="+req.params.title+"&apikey=" +process.env.API_KEY)
 
